@@ -257,12 +257,12 @@
 
   <distributionManagement>
     <repository>
-      <id>${releaseRepositoryId}</id>
-      <url>${releaseRepositoryUrl}</url>
+      <id>${wcm-io-releaseRepositoryId}</id>
+      <url>${wcm-io-releaseRepositoryUrl}</url>
     </repository>
     <snapshotRepository>
-      <id>${snapshotRepositoryId}</id>
-      <url>${snapshotRepositoryUrl}</url>
+      <id>${wcm-io-snapshotRepositoryId}</id>
+      <url>${wcm-io-snapshotRepositoryUrl}</url>
     </snapshotRepository>
   </distributionManagement>
 
