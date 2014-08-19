@@ -4,14 +4,17 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <packaging>pom</packaging>
   <version>6.0.0.0000-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
   <description>Defines Maven dependencies for a specific AEM version, including those that are not defined in the aem-api "Uber" JAR provided by Adobe.</description>
+  <url>http://wcm.io</url>
 
   <scm>
-    <developerConnection>scm:git:git@github.com:pro-vision/wcm-io-sandbox.git</developerConnection>
+    <connection>scm:git:git@github.com:wcm-io/wcm-io.git</connection>
+    <developerConnection>scm:git:git@github.com:wcm-io/wcm-io.git</developerConnection>
+    <url>git@github.com:wcm-io/wcm-io.git</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -36,6 +39,14 @@
       <organizationUrl>http://www.pro-vision.de</organizationUrl>
     </developer>
   </developers>
+
+  <properties>
+    <!-- repository settings -->
+    <wcm-io-snapshotRepositoryId>ossrh</wcm-io-snapshotRepositoryId>
+    <wcm-io-snapshotRepositoryUrl>https://oss.sonatype.org/content/repositories/snapshots</wcm-io-snapshotRepositoryUrl>
+    <wcm-io-releaseRepositoryId>ossrh</wcm-io-releaseRepositoryId>
+    <wcm-io-releaseRepositoryUrl>https://oss.sonatype.org/service/local/staging/deploy/maven2/</wcm-io-releaseRepositoryUrl>
+  </properties>
 
   <dependencyManagement>
     <dependencies>
@@ -275,10 +286,105 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+             <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.9.1</version>
+        </plugin>        
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
+
+  <profiles>
+
+    <!-- configuration to deploy into maven central -->
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- sign the build -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- configure staging process at sonatype.-->
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <!-- Deployed artifacts should go to staging to be reviewed before publish
+              TODO: this can be removed when deployment has been tested
+              -->
+              <autoReleaseAfterClose>false</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
 
   <distributionManagement>
     <repository>
