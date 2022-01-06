@@ -1,4 +1,4 @@
-<img src="https://wcm.io/images/favicon-16@2x.png"/> wcm.io AEM Cloud Service Dependencies
+<img src="https://wcm.io/images/favicon-16@2x.png"/> wcm.io AEM Dependencies
 ======
 [![Build](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/workflows/Build/badge.svg?branch=develop)](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/actions?query=workflow%3ABuild+branch%3Adevelop)
 
