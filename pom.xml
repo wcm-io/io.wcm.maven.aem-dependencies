@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  wcm.io
+  %%
+  Copyright (C) 2022 wcm.io
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.wcm.maven</groupId>
+    <artifactId>io.wcm.maven.global-parent</artifactId>
+    <version>40</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>io.wcm</groupId>
+  <artifactId>io.wcm.maven.aem-dependencies.root</artifactId>
+  <version>1</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>6.4.0</module>
+    <module>6.4.1</module>
+    <module>6.4.2</module>
+    <module>6.4.3</module>
+    <module>6.4.4</module>
+    <module>6.4.5</module>
+    <module>6.4.6</module>
+    <module>6.4.7</module>
+    <module>6.4.8</module>
+    <module>6.5.0</module>
+    <module>6.5.1</module>
+    <module>6.5.2</module>
+    <module>6.5.3</module>
+    <module>6.5.4</module>
+    <module>6.5.5</module>
+    <module>6.5.6</module>
+    <module>6.5.7</module>
+    <module>6.5.8</module>
+    <module>6.5.9</module>
+    <module>6.5.10</module>
+    <module>6.5.11</module>
+  </modules>
+
+  <build>
+    <plugins>
+
+      <!-- do not deploy this hierarchy pom into maven repository -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
