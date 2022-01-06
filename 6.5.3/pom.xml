@@ -584,11 +584,6 @@
               <releaseFinishMessage>Update for next development version @{version}</releaseFinishMessage>
               <releaseVersionUpdateMessage>Update for next development version @{version}</releaseVersionUpdateMessage>
             </commitMessages>
-            <gitFlowConfig>
-              <releaseBranchPrefix>release/${project.artifactId}-</releaseBranchPrefix>
-              <hotfixBranchPrefix>hotfix/${project.artifactId}-</hotfixBranchPrefix>
-              <versionTagPrefix>${project.artifactId}-</versionTagPrefix>
-            </gitFlowConfig>
           </configuration>
         </plugin>
       </plugins>
