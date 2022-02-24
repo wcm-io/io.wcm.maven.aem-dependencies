@@ -92,13 +92,13 @@
         <artifactId>uber-jar</artifactId>
         <!-- since AEM 6.5.6 this does no longer use the "apis" classifier -->
         <!-- update-aem-deps:ignore -->
-        <version>6.5.11</version>
+        <version>6.5.12</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.11</version>
+        <version>6.5.12</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
@@ -370,7 +370,7 @@
         <groupId>com.day.commons.osgi.wrapper</groupId>
         <artifactId>com.day.commons.osgi.wrapper.commons-httpclient</artifactId>
         <!-- Latest version not available on Maven Central -->
-        <!-- update-aem-deps:derived-from=com.day.commons.osgi.wrapper.commons-httpclient:3.1.0.26 -->
+        <!-- update-aem-deps:derived-from=com.day.commons.osgi.wrapper.commons-httpclient:3.1.0.28 -->
         <version>3.1.0.018</version>
       </dependency>
       <dependency>
