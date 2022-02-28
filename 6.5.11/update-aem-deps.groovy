@@ -31,31 +31,36 @@ LOCAL_AEM_PASSWORD = 'admin'
 //----------------------------------------------------------------------
 
 @Grab('org.slf4j:slf4j-simple:1.7.30')
-@Grab('io.github.http-builder-ng:http-builder-ng-core:1.0.4')
 @Grab('jaxen:jaxen:1.1.6')
 @GrabExclude('jdom:jdom')
-@Grab('org.jdom:jdom2:2.0.6')
+@Grab('org.jdom:jdom2:2.0.6.1')
 
 import org.jdom2.*
 import org.jdom2.filter.*
 import org.jdom2.input.*
 import org.jdom2.xpath.*
 import org.jdom2.output.*
-import groovyx.net.http.HttpBuilder
+import groovy.xml.XmlSlurper
 import groovy.json.JsonSlurper
 import groovy.grape.Grape
 import org.slf4j.LoggerFactory
+import java.net.Authenticator
+import java.net.PasswordAuthentication
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
+import java.time.Duration
 import java.util.regex.Pattern
 
 HINT_PATTERN = /\s*update-aem-deps:([^\s]*)\s*/
 
 log = LoggerFactory.getLogger(this.class)
+exitWithFailure = false
 
 // get bundles version running in local AEM instance
 log.info 'Reading bundle versions...'
-def bundleVersions = [:]
-def bundlePackageVersions = [:]
-readBundleVersions(bundleVersions, bundlePackageVersions)
+def bundleData = [:]
+readBundleData(bundleData)
 
 // read process pom using JDOM to preserve formatting and whitespaces
 POM_NS = Namespace.getNamespace('ns', 'http://maven.apache.org/POM/4.0.0')
@@ -63,11 +68,11 @@ Document doc = new SAXBuilder().build(new FileReader('pom.xml'))
 
 // update some well-known properties based on specific bundle versions
 log.info 'Update properties...'
-pomUpdateProperties(doc, bundleVersions)
+pomUpdateProperties(doc, bundleData)
 
 // update all dependencies matching the bundles in local POM
 log.info 'Update dependencies...'
-pomUpdateDependencies(doc, bundleVersions, bundlePackageVersions)
+pomUpdateDependencies(doc, bundleData)
 
 // validate all dependencies
 log.info 'Validate dependencies...'
@@ -82,24 +87,50 @@ new XMLOutputter().with {
   os.close()
 }
 
+if (exitWithFailure) {
+  System.exit(1)
+}
+
+
+
 // --- functions ---
 
 // read URL from locale AEM instance
 def readAemUrl(relativeUrl) {
   def url = LOCAL_AEM_URL + relativeUrl
   try {
-    return HttpBuilder.configure {
-      request.uri = url
-      request.auth.basic LOCAL_AEM_USER, LOCAL_AEM_PASSWORD
-    }.get()
+    HttpClient client = HttpClient.newBuilder()
+        .connectTimeout(Duration.ofSeconds(10))
+        .authenticator(new Authenticator() {   
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(LOCAL_AEM_USER, LOCAL_AEM_PASSWORD.toCharArray())
+            }
+        })
+        .version(HttpClient.Version.HTTP_1_1)
+        .build()
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(url))
+        .build()
+    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString())
+    if (response.statusCode() == 200) {
+      if (relativeUrl.endsWith('.json')) {
+        return new JsonSlurper().parseText(response.body())
+      }
+      else {
+        return response.body()
+      }
+    }
+    else {
+      throw new RuntimeException("Call failed with HTTP ${response.statusCode()}")
+    }
   }
   catch (Exception ex) {
-    throw new RuntimeException("Unable to access " + url, ex)
+    throw new RuntimeException("Unable to access ${url}", ex)
   }
 }
 
 // read versions of all maven artifacts from bundle list
-def readBundleVersions(bundleVersions, bundlePackageVersions) {
+def readBundleData(bundleData) {
   def bundleList = readAemUrl('/system/console/bundles.json')
   bundleList.data.each {
     def version = it.version
@@ -112,22 +143,22 @@ def readBundleVersions(bundleVersions, bundlePackageVersions) {
         version = implementationVersion
       }
     }
-    bundleVersions[it.symbolicName] = version;
+    bundleData[it.symbolicName] = new BundleData(version: version)
 
     // read exported package versions
     def exportedPackages = bundleDetails.data[0].props.findResult { it.key == 'Exported Packages' ? it : null }
     def packageVersions = [:]
     if (exportedPackages && exportedPackages.value) {
       exportedPackages.value.each {
-        def exportedPackage = "${it}";
-        def packageVersionPattern = /(.*),version=(.*)/;
+        def exportedPackage = "${it}"
+        def packageVersionPattern = /(.*),version=(.*)/
         def matcher = (exportedPackage =~ packageVersionPattern)
         if (matcher.matches()) {
           packageVersions[matcher.group(1)] = matcher.group(2)
         }
       }
     }
-    bundlePackageVersions[it.symbolicName] = packageVersions
+    bundleData[it.symbolicName].packageVersions = packageVersions
 
   }
 }
@@ -137,11 +168,11 @@ def pomSetAemSdkVersion(doc, aemSdkVersion) {
   def versions = XPathFactory.instance().compile('/ns:project/ns:version', Filters.element(), null, POM_NS).evaluate(doc)
   for (def version in versions) {
     version.text = "${aemSdkVersion}.0000-SNAPSHOT"
-  } 
+  }
 }
 
 // update property in POM to match with a specific bundle version
-def pomUpdateProperties(doc, bundleVersions) {
+def pomUpdateProperties(doc, bundleData) {
   def props = XPathFactory.instance().compile('/ns:project/ns:properties/*', Filters.element(), null, POM_NS).evaluate(doc)
   for (def prop in props) {
     // check if previous sibling is a comment not with a dependency hint
@@ -161,20 +192,22 @@ def pomUpdateProperties(doc, bundleVersions) {
       // check for dervied-from hint
       def derivedFrom = getDerivedFromHint(hint)
       if (derivedFrom) {
-        def actualVersion = bundleVersions[derivedFrom.bundleName]
+        def actualVersion = getBundleVersion(bundleData, derivedFrom.bundleName)
         if (derivedFrom.version != actualVersion) {
           if (actualVersion) {
             log.warn "property ${prop.name} is derived from ${derivedFrom.bundleName}:${derivedFrom.version}, but that bundle has currently version ${actualVersion}, check manually"
+            exitWithFailure = true
           }
           else {
             log.warn "property ${prop.name} is derived from ${derivedFrom.bundleName}:${derivedFrom.version}, but that bundle is not present, check manually"
+            exitWithFailure = true
           }
         }
         continue
       }
       def bundleName = getBundleNameFromHint(hint)
       if (bundleName) {
-        def version = bundleVersions[bundleName]
+        def version = getBundleVersion(bundleData, bundleName)
         assert version != null : 'Version of bundle ' + bundleName + ' not found'
         prop.text = version
       }
@@ -183,7 +216,7 @@ def pomUpdateProperties(doc, bundleVersions) {
 }
 
 // updates all dependencies to their latest versions
-def pomUpdateDependencies(doc, bundleVersions, bundlePackageVersions) {
+def pomUpdateDependencies(doc, bundleData) {
   def deps = XPathFactory.instance().compile('/ns:project/ns:dependencyManagement/ns:dependencies/ns:dependency', Filters.element(), null, POM_NS).evaluate(doc)
   for (def dep in deps) {
     def groupId = dep.getChild('groupId', POM_NS).text
@@ -199,13 +232,15 @@ def pomUpdateDependencies(doc, bundleVersions, bundlePackageVersions) {
     // check for dervied-from hint
     def derivedFrom = getDerivedFromHint(hint)
     if (derivedFrom) {
-      def actualVersion = bundleVersions[derivedFrom.bundleName]
+      def actualVersion = getBundleVersion(bundleData, derivedFrom.bundleName)
       if (derivedFrom.version != actualVersion) {
         if (actualVersion) {
           log.warn "${groupId}:${artifactId} is derived from ${derivedFrom.bundleName}:${derivedFrom.version}, but that bundle has currently version ${actualVersion}, check manually"
+          exitWithFailure = true
         }
         else {
           log.warn "${groupId}:${artifactId} is derived from ${derivedFrom.bundleName}:${derivedFrom.version}, but that bundle is not present, check manually"
+          exitWithFailure = true
         }
       }
       continue
@@ -221,19 +256,19 @@ def pomUpdateDependencies(doc, bundleVersions, bundlePackageVersions) {
     def version = null
     def bundleName = getBundleNameFromHint(hint)
     if (bundleName) {
-      version = bundleVersions[bundleName]
+      version = getBundleVersion(bundleData, bundleName)
     }
     else {
       def bundlePackage = getBundlePackageFromHint(hint)
       if (bundlePackage) {
-        version = bundlePackageVersions[bundlePackage.bundleName][bundlePackage.packageName]
+        version = bundleData[bundlePackage.bundleName].packageVersions[bundlePackage.packageName]
       }
       else {
         // check for bundle = artifactId
-        version = bundleVersions[artifactId]
+        version = getBundleVersion(bundleData, artifactId)
         if (!version) {
           // alternatively check combination for groupId and artifactId
-          version = bundleVersions["${groupId}.${artifactId}"]
+          version = getBundleVersion(bundleData, "${groupId}.${artifactId}")
         }
       }
     }
@@ -242,6 +277,7 @@ def pomUpdateDependencies(doc, bundleVersions, bundlePackageVersions) {
     }
     else {
       log.warn "No matching bundle: ${groupId}:${artifactId}"
+      exitWithFailure = true
     }
   }
 }
@@ -266,17 +302,12 @@ def pomValidateDependencies(doc) {
 
     // try to resolve dependency
     try {
+      // this may fail with "Error grabbing grapes", see https://stackoverflow.com/a/51159346 and https://issues.apache.org/jira/browse/GROOVY-8655
       Grape.grab(group: groupId, module: artifactId, version: version)
     }
     catch (Exception ex) {
-      if (ex.message =~ /download failed: javax.mail#javax.mail-api;1.6.2!javax.mail-api.jar/
-          || ex.message =~ /download failed: org.apache.poi#poi-ooxml-schemas;4.0.1!poi-ooxml-schemas.jar/
-          || ex.message =~ /download failed: org.apache.xmlgraphics#fop;1.0!fop.jar/) {
-        // ignore: dependencies cannot be downloaded by grape/ivy - unsure why
-      }
-      else {
-        log.error ex.message
-      }
+      log.error ex.message
+      exitWithFailure = true
     }
   }
 }
@@ -287,7 +318,7 @@ def getDependencyHint(dep) {
 }
 
 def getBundleNameFromHint(hint) {
-  def bundleNamePattern = /bundle=(.*)/;
+  def bundleNamePattern = /bundle=(.*)/
   def matcher = (hint =~ bundleNamePattern)
   if (matcher.matches()) {
     return matcher.group(1)
@@ -298,7 +329,7 @@ def getBundleNameFromHint(hint) {
 }
 
 def getDerivedFromHint(hint) {
-  def derivedFromPattern = /derived-from=(.*):(.*)/;
+  def derivedFromPattern = /derived-from=(.*):(.*)/
   def matcher = (hint =~ derivedFromPattern)
   if (matcher.matches()) {
     return [ bundleName: matcher.group(1), version: matcher.group(2) ]
@@ -309,7 +340,7 @@ def getDerivedFromHint(hint) {
 }
 
 def getBundlePackageFromHint(hint) {
-  def bundlePackagePattern = /bundle-package=(.*):(.*)/;
+  def bundlePackagePattern = /bundle-package=(.*):(.*)/
   def matcher = (hint =~ bundlePackagePattern)
   if (matcher.matches()) {
     return [ bundleName: matcher.group(1), packageName: matcher.group(2) ]
@@ -317,4 +348,13 @@ def getBundlePackageFromHint(hint) {
   else {
     return null
   }
+}
+
+def getBundleVersion(bundleData, bundleName) {
+  return bundleData[bundleName]?.version
+}
+
+class BundleData {
+  String version
+  Map packageVersions
 }
