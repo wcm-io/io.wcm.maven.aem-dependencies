@@ -181,6 +181,12 @@
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.dto -->
         <version>1.1.0</version>
       </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.service.url</artifactId>
+        <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.service.url -->
+        <version>1.0.0</version>
+      </dependency>
 
       <!-- OSGi annotations -->
       <dependency>
@@ -344,7 +350,19 @@
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore-osgi</artifactId>
+        <!-- update-aem-deps:bundle=org.apache.httpcomponents.httpcore -->
+        <version>4.4.8</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
+        <version>4.5.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient-osgi</artifactId>
+        <!-- update-aem-deps:bundle=org.apache.httpcomponents.httpclient -->
         <version>4.5.4</version>
       </dependency>
       <dependency>
@@ -429,6 +447,11 @@
         <groupId>org.apache.geronimo.specs</groupId>
         <artifactId>geronimo-annotation_1.3_spec</artifactId>
         <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.jknack</groupId>
+        <artifactId>handlebars</artifactId>
+        <version>4.0.5</version>
       </dependency>
       <dependency>
         <groupId>taglibs</groupId>
@@ -606,6 +629,17 @@
         <groupId>org.apache.jackrabbit</groupId>
         <artifactId>oak-jcr</artifactId>
         <version>${oak.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit.vault</groupId>
+        <artifactId>org.apache.jackrabbit.vault</artifactId>
+        <version>3.2.8</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <!-- update-aem-deps:ignore -->
+        <version>${slf4j.version}</version>
       </dependency>
 
     </dependencies>
