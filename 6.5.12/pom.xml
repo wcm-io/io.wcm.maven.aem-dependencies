@@ -165,6 +165,12 @@
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.util.function</artifactId>
+        <!-- update-aem-deps:derived-from=org.osgi.util.function:1.1.0.201802012106 -->
+        <version>1.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
         <artifactId>org.osgi.util.tracker</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.util.tracker -->
         <version>1.5.2</version>
