@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.12.0000</version>
+  <version>6.5.12.0001-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -162,6 +162,12 @@
         <artifactId>org.osgi.util.converter</artifactId>
         <!-- update-aem-deps:derived-from=org.apache.felix.converter:1.0.2 -->
         <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.util.function</artifactId>
+        <!-- update-aem-deps:derived-from=org.osgi.util.function:1.1.0.201802012106 -->
+        <version>1.1.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
