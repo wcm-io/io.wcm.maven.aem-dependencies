@@ -91,13 +91,14 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.14</version>
+        <!-- In Experience Manager 6.5.14.0, be aware that the UberJar version (6.5.13.0) remains the same as the previous release. -->
+        <version>6.5.13</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.14</version>
+        <version>6.5.13</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
