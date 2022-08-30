@@ -35,7 +35,7 @@
     <tag>HEAD</tag>
   </scm>
 
-  <inceptionYear>2020</inceptionYear>
+  <inceptionYear>2022</inceptionYear>
 
   <organization>
     <name>wcm.io</name>
@@ -306,6 +306,12 @@
         <groupId>com.adobe.granite</groupId>
         <artifactId>com.adobe.granite.tagsoup</artifactId>
         <version>1.2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.servicemix.bundles</groupId>
+        <artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.servicemix.bundles.jaxb-runtime:2.3.2 -->
+        <version>2.3.2_2</version>
       </dependency>
 
       <!-- Dependencies included in uber jar - but we keep them here for backward compatibility with older aem-dependencies versions -->

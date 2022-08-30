@@ -1,7 +1,7 @@
 <img src="https://wcm.io/images/favicon-16@2x.png"/> wcm.io AEM Dependencies
 ======
 [![Build](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/workflows/Build/badge.svg?branch=develop)](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/actions?query=workflow%3ABuild+branch%3Adevelop)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.wcm.maven/io.wcm.maven.aem-dependencies/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.wcm.maven/io.wcm.maven.aem-dependencies)
+[![Maven Central](https://img.shields.io/maven-central/v/io.wcm.maven/io.wcm.maven.aem-dependencies)](https://repo1.maven.org/maven2/io/wcm/maven/io.wcm.maven.aem-dependencies/)
 
 Maven dependencies the AEM 6.4/6.5
 
