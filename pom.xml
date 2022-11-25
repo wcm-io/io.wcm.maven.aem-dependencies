@@ -59,6 +59,7 @@
     <module>6.5.12</module>
     <module>6.5.13</module>
     <module>6.5.14</module>
+    <module>6.5.15</module>
   </modules>
 
   <build>
