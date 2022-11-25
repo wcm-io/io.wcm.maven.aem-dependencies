@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.14.0001-SNAPSHOT</version>
+  <version>6.5.15.0000</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -64,7 +64,7 @@
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
     <jackrabbit.version>2.20.4</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.12</oak.version>
+    <oak.version>1.22.13</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>ossrh</distribution.snapshotRepositoryId>
@@ -81,7 +81,7 @@
 
       Dependencies from this AEM release:
       - AEM_6.5_Quickstart.jar
-      - aem-service-pkg-6.5.14.0.zip
+      - aem-service-pkg-6.5.15.0.zip
 
      #######################################################################
 -->
@@ -91,14 +91,13 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <!-- In Experience Manager 6.5.14.0, be aware that the UberJar version (6.5.13.0) remains the same as the previous release. -->
-        <version>6.5.13</version>
+        <version>6.5.15</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.13</version>
+        <version>6.5.15</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
@@ -612,7 +611,7 @@
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.models.impl</artifactId>
         <!-- Stick with 1.4.14 to avoid problems in sling-mocks unit tests until 1.4.18 (or higher) is released with fix from SLING-9856 -->
-        <!-- update-aem-deps:derived-from=org.apache.sling.models.impl:1.4.16 -->
+        <!-- update-aem-deps:derived-from=org.apache.sling.models.impl:1.4.16-B0002 -->
         <version>1.4.14</version>
       </dependency>
       <dependency>
