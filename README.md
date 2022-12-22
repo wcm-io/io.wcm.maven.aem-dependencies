@@ -6,7 +6,7 @@
 Maven dependencies the AEM 6.4/6.5
 
 Documentation: https://wcm.io/tooling/maven/aem-dependencies.html<br/>
-Issues: https://wcm-io.atlassian.net/browse/WTOOL<br/>
+Issues: https://github.com/wcm-io/io.wcm.maven.aem-dependencies/issues<br/>
 Wiki: https://wcm-io.atlassian.net/wiki/<br/>
 Continuous Integration: https://github.com/wcm-io/io.wcm.maven.aem-dependencies/actions<br/>
 Commercial support: https://wcm.io/commercial-support.html
