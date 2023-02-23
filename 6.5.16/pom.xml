@@ -2,7 +2,7 @@
   #%L
   wcm.io
   %%
-  Copyright (C) 2022 wcm.io
+  Copyright (C) 2023 wcm.io
   %%
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@
     <tag>HEAD</tag>
   </scm>
 
-  <inceptionYear>2022</inceptionYear>
+  <inceptionYear>2023</inceptionYear>
 
   <organization>
     <name>wcm.io</name>
@@ -62,9 +62,9 @@
     <!-- update-aem-deps:bundle=slf4j.api -->
     <slf4j.version>1.7.25</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
-    <jackrabbit.version>2.20.4</jackrabbit.version>
+    <jackrabbit.version>2.20.8</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.13</oak.version>
+    <oak.version>1.22.14</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>ossrh</distribution.snapshotRepositoryId>
@@ -81,7 +81,7 @@
 
       Dependencies from this AEM release:
       - AEM_6.5_Quickstart.jar
-      - aem-service-pkg-6.5.15.0.zip
+      - aem-service-pkg-6.5.16.0.zip
 
      #######################################################################
 -->
@@ -445,17 +445,17 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.13.0</version>
+        <version>2.13.4</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.13.0</version>
+        <version>2.13.4</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.13.0</version>
+        <version>2.13.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -484,6 +484,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.api</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.sling.api:2.22.0-B002 -->
         <version>2.22.0</version>
       </dependency>
       <dependency>
@@ -494,6 +495,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.resourceresolver</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.sling.resourceresolver:1.7.10-B004 -->
         <version>1.7.10</version>
       </dependency>
       <dependency>
