@@ -3,10 +3,10 @@
 [![Build](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/workflows/Build/badge.svg?branch=develop)](https://github.com/wcm-io/io.wcm.maven.aem-dependencies/actions?query=workflow%3ABuild+branch%3Adevelop)
 [![Maven Central](https://img.shields.io/maven-central/v/io.wcm.maven/io.wcm.maven.aem-dependencies)](https://repo1.maven.org/maven2/io/wcm/maven/io.wcm.maven.aem-dependencies/)
 
-Maven dependencies the AEM 6.4/6.5
+Maven dependencies the AEM 6.5
 
 Documentation: https://wcm.io/tooling/maven/aem-dependencies.html<br/>
-Issues: https://wcm-io.atlassian.net/browse/WTOOL<br/>
+Issues: https://github.com/wcm-io/io.wcm.maven.aem-dependencies/issues<br/>
 Wiki: https://wcm-io.atlassian.net/wiki/<br/>
 Continuous Integration: https://github.com/wcm-io/io.wcm.maven.aem-dependencies/actions<br/>
 Commercial support: https://wcm.io/commercial-support.html
@@ -14,7 +14,7 @@ Commercial support: https://wcm.io/commercial-support.html
 
 ## Usage
 
-This POM defines Maven dependencies for AEM 6.4/6.5, including those that are not defined in the `uber-jar` API JAR provided by Adobe. Additionally, the POM includes Sling-internal dependencies required for [AEM Mocks](https://wcm.io/testing/aem-mock/) in exactly the versions included in the AEM version.
+This POM defines Maven dependencies for AEM 6.5, including those that are not defined in the `uber-jar` API JAR provided by Adobe. Additionally, the POM includes Sling-internal dependencies required for [AEM Mocks](https://wcm.io/testing/aem-mock/) in exactly the versions included in the AEM version.
 
 The version number of the artifact matches the AEM and service pack level version, plus a last part (4 digits) which is the revision number added by the wcm.io project, and is incremented if a fix or update of the POM needs to be published for the same AEM version.
 
