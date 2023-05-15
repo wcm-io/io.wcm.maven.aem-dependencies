@@ -160,7 +160,7 @@
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.util.converter</artifactId>
         <!-- update-aem-deps:derived-from=org.apache.felix.converter:1.0.2 -->
-        <version>1.0.0</version>
+        <version>1.0.8</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
