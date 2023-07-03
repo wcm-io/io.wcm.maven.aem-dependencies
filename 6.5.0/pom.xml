@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.0.0007-SNAPSHOT</version>
+  <version>6.5.0.0007</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -619,6 +619,11 @@
       <dependency>
         <groupId>org.apache.jackrabbit</groupId>
         <artifactId>oak-jcr</artifactId>
+        <version>${oak.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>oak-jackrabbit-api</artifactId>
         <version>${oak.version}</version>
       </dependency>
       <dependency>
