@@ -64,7 +64,7 @@
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
     <jackrabbit.version>2.20.11</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.17</oak.version>
+    <oak.version>1.22.18</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>ossrh</distribution.snapshotRepositoryId>
@@ -422,7 +422,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.22</version>
+        <version>1.24.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
