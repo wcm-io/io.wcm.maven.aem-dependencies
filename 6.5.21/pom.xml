@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.20.0001-SNAPSHOT</version>
+  <version>6.5.21.0000</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -35,7 +35,7 @@
     <tag>HEAD</tag>
   </scm>
 
-  <inceptionYear>2023</inceptionYear>
+  <inceptionYear>2024</inceptionYear>
 
   <organization>
     <name>wcm.io</name>
@@ -62,9 +62,9 @@
     <!-- update-aem-deps:bundle=slf4j.api -->
     <slf4j.version>1.7.25</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
-    <jackrabbit.version>2.20.11</jackrabbit.version>
+    <jackrabbit.version>2.20.15</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.18</oak.version>
+    <oak.version>1.22.20</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>ossrh</distribution.snapshotRepositoryId>
@@ -81,7 +81,7 @@
 
       Dependencies from this AEM release:
       - AEM_6.5_Quickstart.jar
-      - aem-service-pkg-6.5.20.0.zip
+      - aem-service-pkg-6.5.21.0.zip
 
      #######################################################################
 -->
@@ -91,13 +91,13 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.20</version>
+        <version>6.5.21</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.20</version>
+        <version>6.5.21</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
@@ -159,8 +159,8 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.util.converter</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.felix.converter:1.0.2 -->
-        <version>1.0.8</version>
+        <!-- update-aem-deps:derived-from=org.osgi.util.converter:1.0.9.202202082230 -->
+        <version>1.0.9</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -286,20 +286,20 @@
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.0 -->
-        <version>5.2.3</version>
+        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.2 -->
+        <version>5.2.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-scratchpad</artifactId>
-        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.0 -->
-        <version>5.2.3</version>
+        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.2 -->
+        <version>5.2.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
-        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.0 -->
-        <version>5.2.3</version>
+        <!-- update-aem-deps:derived-from=com.adobe.granite.poi:2.1.2 -->
+        <version>5.2.4</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.granite</groupId>
@@ -323,7 +323,7 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.commons-io -->
-        <version>2.13.0</version>
+        <version>2.15.1</version>
       </dependency>
       <dependency>
         <groupId>org.apache.cocoon</groupId>
@@ -394,7 +394,7 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.lang3 -->
-        <version>3.13.0</version>
+        <version>3.14.0</version>
       </dependency>
       <dependency>
         <groupId>commons-lang</groupId>
@@ -417,12 +417,12 @@
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.commons-codec -->
-        <version>1.16.0</version>
+        <version>1.16.1</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.24.0</version>
+        <version>1.26.1</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -444,17 +444,17 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.13.5</version>
+        <version>2.16.2</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.13.5</version>
+        <version>2.16.2</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.13.5</version>
+        <version>2.16.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -483,8 +483,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.api</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.api:2.22.0-B002 -->
-        <version>2.22.0</version>
+        <version>2.27.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -494,8 +493,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.resourceresolver</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.resourceresolver:1.7.10-B006 -->
-        <version>1.7.10</version>
+        <version>1.10.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -557,7 +555,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.scripting.core</artifactId>
-        <version>2.3.2</version>
+        <version>2.4.8</version>
         <exclusions>
           <exclusion>
             <groupId>org.osgi</groupId>
@@ -572,26 +570,22 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.scripting.sightly</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.scripting.sightly:1.1.2.1_4_0 -->
-        <version>1.1.2-1.4.0</version>
+        <version>1.4.22-1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.scripting.sightly.compiler</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.scripting.sightly.compiler:1.1.2.1_4_0 -->
-        <version>1.1.2-1.4.0</version>
+        <version>1.2.14-1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.scripting.sightly.compiler.java</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.scripting.sightly.compiler.java:1.1.2.1_4_0 -->
-        <version>1.1.2-1.4.0</version>
+        <version>1.2.2-1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.scripting.sightly.runtime:1.1.0.1_4_0 -->
-        <version>1.1.0-1.4.0</version>
+        <version>1.2.6-1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
