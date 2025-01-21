@@ -80,7 +80,7 @@
      #######################################################################
 
       Dependencies from this AEM release:
-      - cq-quickstart-6.5.2025.0-beta-load2.jar
+      - cq-quickstart-6.5.2025.0-beta-load3.jar
 
      #######################################################################
 -->
@@ -328,12 +328,6 @@
         <groupId>org.apache.cocoon</groupId>
         <artifactId>cocoon-xml</artifactId>
         <version>2.0.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.xmlgraphics</groupId>
-        <artifactId>fop</artifactId>
-        <!-- update-aem-deps:derived-from=com.day.commons.osgi.wrapper.fop:1.16.0 -->
-        <version>1.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
