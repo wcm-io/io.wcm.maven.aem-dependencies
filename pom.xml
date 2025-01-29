@@ -58,6 +58,7 @@
     <module>6.5.20</module>
     <module>6.5.21</module>
     <module>6.5.22</module>
+    <module>6.5.2025.0</module>
   </modules>
 
   <build>
