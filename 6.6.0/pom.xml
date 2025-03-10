@@ -91,6 +91,7 @@
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
         <version>6.6.0</version>
+        <classifier>apis</classifier>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
