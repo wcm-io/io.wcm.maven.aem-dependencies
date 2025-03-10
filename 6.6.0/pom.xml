@@ -80,7 +80,7 @@
      #######################################################################
 
       Dependencies from this AEM release:
-      - cq-quickstart-6.6.0-beta-load5.jar
+      - cq-quickstart-6.6.0.jar
 
      #######################################################################
 -->
@@ -90,13 +90,13 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.6.0-beta-load5</version>
+        <version>6.6.0</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.6.0-beta-load5</version>
+        <version>6.6.0</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
