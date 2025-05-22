@@ -25,7 +25,7 @@
   <parent>
     <groupId>io.wcm.maven</groupId>
     <artifactId>io.wcm.maven.global-parent</artifactId>
-    <version>61</version>
+    <version>63</version>
     <relativePath/>
   </parent>
 
@@ -58,6 +58,7 @@
     <module>6.5.20</module>
     <module>6.5.21</module>
     <module>6.5.22</module>
+    <module>6.5.23</module>
     <module>6.6.0</module>
   </modules>
 
