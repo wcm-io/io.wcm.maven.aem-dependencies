@@ -492,6 +492,24 @@
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
+        <artifactId>org.apache.sling.commons.scheduler</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.sling.commons.scheduler:2.7.12 -->
+        <version>2.7.12</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.sling</groupId>
+        <artifactId>org.apache.sling.event</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.sling.event:4.2.24 -->
+        <version>4.2.24</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.sling</groupId>
+        <artifactId>org.apache.sling.event.api</artifactId>
+        <!-- update-aem-deps:derived-from=org.apache.sling.event:4.2.24 -->
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.resourceresolver</artifactId>
         <version>1.10.0</version>
       </dependency>
