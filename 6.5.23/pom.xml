@@ -658,7 +658,6 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.hc.api</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.hc.api:1.0.2 -->
         <version>1.0.2</version>
       </dependency>
       <dependency>
