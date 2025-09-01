@@ -60,6 +60,7 @@
     <module>6.5.22</module>
     <module>6.5.23</module>
     <module>6.6.0</module>
+    <module>6.6.1</module>
   </modules>
 
   <build>
