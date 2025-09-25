@@ -63,7 +63,7 @@
     <slf4j.version>1.7.36</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
     <jackrabbit.version>2.22.1</jackrabbit.version>
-    <!-- update-aem-deps:derived-from=org.apache.jackrabbit.oak-core:1.78.1.B002 -->
+    <!-- update-aem-deps:derived-from=org.apache.jackrabbit.oak-core:1.78.1-B002 -->
     <oak.version>1.78.0</oak.version>
 
     <!-- repository settings -->
