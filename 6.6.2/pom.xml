@@ -2,7 +2,7 @@
   #%L
   wcm.io
   %%
-  Copyright (C) 2024 wcm.io
+  Copyright (C) 2025 wcm.io
   %%
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.24.0001-SNAPSHOT</version>
+  <version>6.6.2.0000</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -60,11 +60,11 @@
   <properties>
     <!-- versions -->
     <!-- update-aem-deps:bundle=slf4j.api -->
-    <slf4j.version>1.7.25</slf4j.version>
+    <slf4j.version>1.7.36</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
-    <jackrabbit.version>2.20.17</jackrabbit.version>
+    <jackrabbit.version>2.22.2</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.23</oak.version>
+    <oak.version>1.88.0</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>sonatype-central-snapshots</distribution.snapshotRepositoryId>
@@ -80,8 +80,7 @@
      #######################################################################
 
       Dependencies from this AEM release:
-      - AEM_6.5_Quickstart.jar
-      - aem-service-pkg-6.5.24.0.zip
+      - cq-quickstart-6.6.2.jar
 
      #######################################################################
 -->
@@ -91,13 +90,14 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.24</version>
+        <version>6.6.2</version>
+        <classifier>apis</classifier>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.24</version>
+        <version>6.6.2</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
@@ -106,19 +106,19 @@
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.framework</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.framework -->
-        <version>1.9.0</version>
+        <version>1.10.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.resource</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.resource -->
-        <version>1.0.0</version>
+        <version>1.0.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component</artifactId>
-        <!-- update-aem-deps:bundle-package=org.apache.felix.scr:org.osgi.service.component -->
-        <version>1.4.0</version>
+        <!-- update-aem-deps:derived-from=org.osgi.service.component:1.5.0.202109301733 -->
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -148,13 +148,13 @@
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.http.whiteboard</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.http.jetty:org.osgi.service.http.whiteboard -->
-        <version>1.1.0</version>
+        <version>1.1.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.log</artifactId>
-        <!-- update-aem-deps:bundle-package=org.apache.sling.commons.logservice:org.osgi.service.log -->
-        <version>1.3.0</version>
+        <!-- update-aem-deps:bundle-package=org.apache.felix.log:org.osgi.service.log -->
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -165,26 +165,26 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.util.function</artifactId>
-        <!-- update-aem-deps:derived-from=org.osgi.util.function:1.1.0.201802012106 -->
-        <version>1.1.0</version>
+        <!-- update-aem-deps:derived-from=org.osgi.util.function:1.2.0.202109301733 -->
+        <version>1.2.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.util.tracker</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.util.tracker -->
-        <version>1.5.2</version>
+        <version>1.5.3</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.dto</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.dto -->
-        <version>1.1.0</version>
+        <version>1.1.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.url</artifactId>
         <!-- update-aem-deps:bundle-package=org.apache.felix.framework:org.osgi.service.url -->
-        <version>1.0.0</version>
+        <version>1.0.1</version>
       </dependency>
 
       <!-- OSGi annotations -->
@@ -203,8 +203,8 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component.annotations</artifactId>
-        <!-- update-aem-deps:bundle-package=org.apache.felix.scr:org.osgi.service.component -->
-        <version>1.4.0</version>
+        <!-- update-aem-deps:bundle-package=org.osgi.service.component:org.osgi.service.component -->
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -253,6 +253,12 @@
         <version>3.1.0</version>
       </dependency>
       <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <!-- update-aem-deps:bundle-package=org.apache.felix.http.servlet-api:jakarta.servlet -->
+        <version>5.0.0</version>
+      </dependency>
+      <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
         <!-- update-aem-deps:ignore -->
@@ -273,7 +279,7 @@
       <dependency>
         <groupId>javax.mail</groupId>
         <artifactId>javax.mail-api</artifactId>
-        <!-- update-aem-deps:bundle=javax.mail -->
+        <!-- update-aem-deps:bundle=com.sun.mail.javax.mail -->
         <version>1.6.2</version>
       </dependency>
 
@@ -338,12 +344,6 @@
         <version>2.0.2</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.xmlgraphics</groupId>
-        <artifactId>fop</artifactId>
-        <!-- update-aem-deps:derived-from=com.day.commons.osgi.wrapper.fop:1.11.0 -->
-        <version>1.0</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-email</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.email -->
@@ -359,7 +359,7 @@
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
         <!-- update-aem-deps:bundle=com.adobe.granite.joda-time -->
-        <version>2.9.1</version>
+        <version>2.12.7</version>
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
@@ -401,7 +401,7 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.lang3 -->
-        <version>3.18.0</version>
+        <version>3.19.0</version>
       </dependency>
       <dependency>
         <groupId>commons-lang</groupId>
@@ -418,7 +418,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-collections4</artifactId>
-        <version>4.4</version>
+        <version>4.5.0</version>
       </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
@@ -429,18 +429,12 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.26.2</version>
+        <version>1.28.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-imaging</artifactId>
         <version>1.0-alpha3</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <!-- update-aem-deps:derived-from=com.adobe.granite.osgi.wrapper.guava:15.0.0.0002 -->
-        <version>15.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.code.gson</groupId>
@@ -451,17 +445,22 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.16.2</version>
+        <version>2.19.1</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.16.2</version>
+        <version>2.19.1</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.16.2</version>
+        <version>2.19.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>2.19.1</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -474,11 +473,6 @@
         <artifactId>javax.annotation-api</artifactId>
         <!-- update-aem-deps:ignore -->
         <version>1.3.2</version>
-      </dependency>
-      <dependency>
-        <groupId>com.github.jknack</groupId>
-        <artifactId>handlebars</artifactId>
-        <version>4.3.1</version>
       </dependency>
       <dependency>
         <groupId>taglibs</groupId>
@@ -497,69 +491,68 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.api</artifactId>
-        <version>2.27.2</version>
+        <version>2.27.6</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.osgi</artifactId>
-        <version>2.4.0</version>
+        <version>2.4.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.scheduler</artifactId>
-        <version>2.7.12</version>
+        <version>2.7.14</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.event</artifactId>
-        <version>4.2.24</version>
+        <version>4.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.event.api</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.event:4.2.24 -->
-        <version>1.0.0</version>
+        <version>1.0.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.resourceresolver</artifactId>
-        <version>1.10.0</version>
+        <version>1.12.12</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.serviceusermapper</artifactId>
-        <version>1.5.4</version>
+        <version>1.5.8</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.jcr.api</artifactId>
-        <version>2.4.0</version>
+        <version>2.4.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.jcr.resource</artifactId>
-        <version>3.0.18</version>
+        <version>3.3.6</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.mime</artifactId>
-        <version>2.2.2</version>
+        <version>2.3.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.johnzon</artifactId>
-        <version>1.2.6</version>
+        <version>1.2.16</version>
       </dependency>
       <dependency>
         <groupId>org.apache.johnzon</groupId>
         <artifactId>johnzon-core</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.commons.johnzon:1.2.6 -->
-        <version>1.2.8</version>
+        <!-- update-aem-deps:derived-from=org.apache.sling.commons.johnzon:1.2.16 -->
+        <version>1.2.21</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
         <artifactId>geronimo-json_1.1_spec</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.sling.commons.johnzon:1.2.6 -->
+        <!-- update-aem-deps:derived-from=org.apache.sling.commons.johnzon:1.2.16 -->
         <version>1.3</version>
       </dependency>
       <dependency>
@@ -570,12 +563,12 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.classloader</artifactId>
-        <version>1.4.2</version>
+        <version>1.4.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.settings</artifactId>
-        <version>1.3.10</version>
+        <version>1.4.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -620,44 +613,42 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.adapter</artifactId>
-        <version>2.1.10</version>
+        <version>2.2.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.i18n</artifactId>
-        <version>2.6.2</version>
+        <version>2.6.6</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.models.api</artifactId>
-        <version>1.3.8</version>
+        <version>1.5.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.models.impl</artifactId>
-        <!-- Stick with 1.4.14 to avoid problems in sling-mocks unit tests until 1.4.18 (or higher) is released with fix from SLING-9856 -->
-        <!-- update-aem-deps:derived-from=org.apache.sling.models.impl:1.4.16-B0002 -->
-        <version>1.4.14</version>
+        <version>1.7.8</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.caconfig.api</artifactId>
-        <version>1.1.2</version>
+        <version>1.3.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.caconfig.spi</artifactId>
-        <version>1.3.4</version>
+        <version>1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.caconfig.impl</artifactId>
-        <version>1.4.14</version>
+        <version>1.7.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.xss</artifactId>
-        <version>2.2.16</version>
+        <version>2.4.6</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -667,12 +658,17 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.commons.threads</artifactId>
-        <version>3.2.18</version>
+        <version>3.3.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.hc.api</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>org.apache.felix.healthcheck.api</artifactId>
+        <version>2.0.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.jackrabbit</groupId>
@@ -692,7 +688,7 @@
       <dependency>
         <groupId>org.apache.jackrabbit.vault</groupId>
         <artifactId>org.apache.jackrabbit.vault</artifactId>
-        <version>3.2.8</version>
+        <version>4.1.4</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
