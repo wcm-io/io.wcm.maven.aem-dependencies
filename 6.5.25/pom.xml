@@ -21,7 +21,7 @@
 
   <groupId>io.wcm.maven</groupId>
   <artifactId>io.wcm.maven.aem-dependencies</artifactId>
-  <version>6.5.24.0001-SNAPSHOT</version>
+  <version>6.5.25.0000</version>
   <packaging>pom</packaging>
 
   <name>io.wcm.maven.aem-dependencies</name>
@@ -35,7 +35,7 @@
     <tag>HEAD</tag>
   </scm>
 
-  <inceptionYear>2025</inceptionYear>
+  <inceptionYear>2026</inceptionYear>
 
   <organization>
     <name>wcm.io</name>
@@ -64,7 +64,7 @@
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
     <jackrabbit.version>2.20.17</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.23</oak.version>
+    <oak.version>1.22.24</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>sonatype-central-snapshots</distribution.snapshotRepositoryId>
@@ -81,7 +81,7 @@
 
       Dependencies from this AEM release:
       - AEM_6.5_Quickstart.jar
-      - aem-service-pkg-6.5.24.0.zip
+      - aem-service-pkg-6.5.25.0.zip
 
      #######################################################################
 -->
@@ -91,13 +91,13 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.24</version>
+        <version>6.5.25</version>
       </dependency>
       <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <!-- update-aem-deps:ignore -->
-        <version>6.5.24</version>
+        <version>6.5.25</version>
         <classifier>apis-with-deprecations</classifier>
       </dependency>
 
@@ -418,7 +418,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-collections4</artifactId>
-        <version>4.4</version>
+        <version>4.5.0-M3</version>
       </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
@@ -451,17 +451,17 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.16.2</version>
+        <version>2.17.2</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.16.2</version>
+        <version>2.17.2</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.16.2</version>
+        <version>2.17.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -657,7 +657,8 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.xss</artifactId>
-        <version>2.2.16</version>
+        <!-- update-aem-deps:derived-from=org.apache.sling.xss:2.4.2-B0002 -->
+        <version>2.4.2</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
