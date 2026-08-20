@@ -62,9 +62,9 @@
     <!-- update-aem-deps:bundle=slf4j.api -->
     <slf4j.version>1.7.36</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
-    <jackrabbit.version>2.22.2</jackrabbit.version>
+    <jackrabbit.version>2.22.3</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.88.0</oak.version>
+    <oak.version>2.4.0</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>sonatype-central-snapshots</distribution.snapshotRepositoryId>
@@ -117,8 +117,8 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component</artifactId>
-        <!-- update-aem-deps:derived-from=org.osgi.service.component:1.5.0.202109301733 -->
-        <version>1.5.0</version>
+        <!-- update-aem-deps:derived-from=org.osgi.service.component:1.5.1.202212101352 -->
+        <version>1.5.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -204,7 +204,7 @@
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component.annotations</artifactId>
         <!-- update-aem-deps:bundle-package=org.osgi.service.component:org.osgi.service.component -->
-        <version>1.5.0</version>
+        <version>1.5.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
@@ -336,7 +336,7 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.commons-io -->
-        <version>2.20.0</version>
+        <version>2.21.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.cocoon</groupId>
@@ -364,25 +364,24 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
-        <version>4.4.8</version>
+        <version>4.4.16</version>
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore-osgi</artifactId>
         <!-- update-aem-deps:bundle=org.apache.httpcomponents.httpcore -->
-        <version>4.4.8</version>
+        <version>4.4.16</version>
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.httpcomponents.httpclient:4.5.13-B0001 -->
-        <version>4.5.13</version>
+        <version>4.5.14</version>
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient-osgi</artifactId>
-        <!-- update-aem-deps:derived-from=org.apache.httpcomponents.httpclient:4.5.13-B0001 -->
-        <version>4.5.13</version>
+        <!-- update-aem-deps:bundle=org.apache.httpcomponents.httpclient -->
+        <version>4.5.14</version>
       </dependency>
       <dependency>
         <groupId>com.day.commons.osgi.wrapper</groupId>
@@ -401,7 +400,7 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.lang3 -->
-        <version>3.19.0</version>
+        <version>3.20.0</version>
       </dependency>
       <dependency>
         <groupId>commons-lang</groupId>
@@ -424,7 +423,7 @@
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.commons-codec -->
-        <version>1.19.0</version>
+        <version>1.21.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -445,22 +444,22 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.19.1</version>
+        <version>2.21.3</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.19.1</version>
+        <version>2.21</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.19.1</version>
+        <version>2.21.3</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.datatype</groupId>
         <artifactId>jackson-datatype-jsr310</artifactId>
-        <version>2.19.1</version>
+        <version>2.21.3</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -568,7 +567,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.settings</artifactId>
-        <version>1.4.2</version>
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -648,7 +647,7 @@
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.xss</artifactId>
-        <version>2.4.6</version>
+        <version>2.4.8</version>
       </dependency>
       <dependency>
         <groupId>org.apache.sling</groupId>
@@ -693,7 +692,7 @@
       <dependency>
         <groupId>org.apache.jackrabbit.vault</groupId>
         <artifactId>org.apache.jackrabbit.vault</artifactId>
-        <version>4.1.4</version>
+        <version>4.2.0</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
