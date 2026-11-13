@@ -62,9 +62,9 @@
     <!-- update-aem-deps:bundle=slf4j.api -->
     <slf4j.version>1.7.25</slf4j.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.jackrabbit-jcr-commons -->
-    <jackrabbit.version>2.20.17</jackrabbit.version>
+    <jackrabbit.version>2.20.18</jackrabbit.version>
     <!-- update-aem-deps:bundle=org.apache.jackrabbit.oak-core -->
-    <oak.version>1.22.24</oak.version>
+    <oak.version>1.22.25</oak.version>
 
     <!-- repository settings -->
     <distribution.snapshotRepositoryId>sonatype-central-snapshots</distribution.snapshotRepositoryId>
@@ -330,7 +330,7 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <!-- update-aem-deps:bundle=org.apache.commons.commons-io -->
-        <version>2.20.0</version>
+        <version>2.21.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.cocoon</groupId>
@@ -451,17 +451,17 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
-        <version>2.17.2</version>
+        <version>2.21.4</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.17.2</version>
+        <version>2.21</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.17.2</version>
+        <version>2.21.4</version>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
@@ -478,6 +478,7 @@
       <dependency>
         <groupId>com.github.jknack</groupId>
         <artifactId>handlebars</artifactId>
+        <!-- update-aem-deps:derived-from=handlebars:4.3.1.B002 -->
         <version>4.3.1</version>
       </dependency>
       <dependency>
